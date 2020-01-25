@@ -15,17 +15,18 @@ class Triangle
       rescue TriangleError => error
           puts error.message
       end
-    else
+    end
       if @side1 == @side2 && @side1 == @side3 
         return :equilateral
+      end
       if @side2 == @side3
         return :isosceles
-      else
+      end
+      if @side1 != @side2 != @side3
         return :scalene
       end
     end
-  end
-end
+  
   class TriangleError < StandardError
     def message
       "It is not a triangle."
